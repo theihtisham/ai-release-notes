@@ -1,0 +1,113 @@
+name: 'AI Release Notes'
+description: 'Auto-generate beautiful release notes from commits, PRs, and diffs using AI'
+author: 'your-username'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+  api-key:
+    description: 'OpenAI-compatible API key (optional — works without AI too)'
+    required: false
+  api-base:
+    description: 'API endpoint (supports any OpenAI-compatible API)'
+    required: false
+    default: 'https://api.openai.com/v1'
+  model:
+    description: 'AI model to use for natural language generation'
+    required: false
+    default: 'gpt-4o-mini'
+  template:
+    description: 'Release notes template: default, minimal, detailed, enterprise, fun, or custom path'
+    required: false
+    default: 'default'
+  commit-mode:
+    description: 'How to collect changes: commits, pull-requests, or auto'
+    required: false
+    default: 'auto'
+  version-from:
+    description: 'How to determine version: tag, package-json, or manual'
+    required: false
+    default: 'tag'
+  version:
+    description: 'Manual version (when version-from is manual)'
+    required: false
+  previous-tag:
+    description: 'Previous release tag (auto-detected if omitted)'
+    required: false
+  include-breaking:
+    description: 'Include BREAKING CHANGE section'
+    required: false
+    default: 'true'
+  include-contributors:
+    description: 'Include contributor thanks section'
+    required: false
+    default: 'true'
+  include-diff-stats:
+    description: 'Include file change statistics'
+    required: false
+    default: 'true'
+  include-screenshots:
+    description: 'Detect and include screenshot links from PRs'
+    required: false
+    default: 'true'
+  categories:
+    description: 'Custom categories as JSON array: [{"label":"Features","patterns":["feat","feature"]}]'
+    required: false
+    default: 'auto'
+  max-commits:
+    description: 'Maximum commits to analyze (prevents token overflow)'
+    required: false
+    default: '200'
+  language:
+    description: 'Output language: en, es, fr, de, ja, ko, zh, pt, ru'
+    required: false
+    default: 'en'
+  dry-run:
+    description: 'Generate notes but do not create release/post'
+    required: false
+    default: 'false'
+  slack-webhook:
+    description: 'Slack webhook URL (posts release notes to Slack)'
+    required: false
+  discord-webhook:
+    description: 'Discord webhook URL (posts release notes to Discord)'
+    required: false
+  twitter-consumer-key:
+    description: 'Twitter API consumer key (posts release tweet)'
+    required: false
+  twitter-consumer-secret:
+    description: 'Twitter API consumer secret'
+    required: false
+  twitter-access-token:
+    description: 'Twitter API access token'
+    required: false
+  twitter-access-secret:
+    description: 'Twitter API access token secret'
+    required: false
+  update-changelog:
+    description: 'Automatically update CHANGELOG.md'
+    required: false
+    default: 'false'
+  changelog-path:
+    description: 'Path to changelog file'
+    required: false
+    default: 'CHANGELOG.md'
+
+outputs:
+  release-notes:
+    description: 'Generated release notes markdown'
+  release-url:
+    description: 'URL of the created GitHub Release'
+  version:
+    description: 'The version number used'
+  summary:
+    description: 'One-line summary of the release'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'file-text'
+  color: 'green'

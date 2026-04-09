@@ -1,0 +1,137 @@
+'use strict';
+
+module.exports = {
+  DEFAULT_CATEGORIES: [
+    { label: '🚀 Features', patterns: ['feat', 'feature', 'add', 'new'] },
+    { label: '🐛 Bug Fixes', patterns: ['fix', 'bugfix', 'patch', 'hotfix'] },
+    { label: '💥 Breaking Changes', patterns: ['breaking', 'BREAKING CHANGE', 'BREAKING'] },
+    { label: '⚡ Performance', patterns: ['perf', 'performance', 'optimize', 'speed'] },
+    { label: '♻️ Refactoring', patterns: ['refactor', 'restructure', 'reorganize'] },
+    { label: '📝 Documentation', patterns: ['docs', 'doc', 'readme', 'documentation'] },
+    { label: '🎨 Style', patterns: ['style', 'format', 'lint', 'prettier'] },
+    { label: '🧪 Tests', patterns: ['test', 'spec', 'coverage'] },
+    { label: '🔧 Chore', patterns: ['chore', 'build', 'ci', 'deps', 'dependabot'] },
+    { label: '🔒 Security', patterns: ['security', 'vulnerability', 'CVE'] },
+  ],
+
+  LANGUAGES: {
+    en: {
+      title: 'Release Notes',
+      summary: 'Summary',
+      contributors: 'Contributors',
+      breaking: 'Breaking Changes',
+      fullChangelog: 'Full Changelog',
+      features: 'Features',
+      bugFixes: 'Bug Fixes',
+      other: 'Other Changes',
+    },
+    es: {
+      title: 'Notas de la Versión',
+      summary: 'Resumen',
+      contributors: 'Colaboradores',
+      breaking: 'Cambios Importantes',
+      fullChangelog: 'Registro Completo',
+      features: 'Características',
+      bugFixes: 'Correcciones',
+      other: 'Otros Cambios',
+    },
+    fr: {
+      title: 'Notes de Version',
+      summary: 'Résumé',
+      contributors: 'Contributeurs',
+      breaking: 'Changements Cassants',
+      fullChangelog: 'Journal Complet',
+      features: 'Fonctionnalités',
+      bugFixes: 'Corrections',
+      other: 'Autres Changements',
+    },
+    de: {
+      title: 'Versionshinweise',
+      summary: 'Zusammenfassung',
+      contributors: 'Mitwirkende',
+      breaking: 'Breaking Changes',
+      fullChangelog: 'Vollständiges Änderungsprotokoll',
+      features: 'Funktionen',
+      bugFixes: 'Fehlerbehebungen',
+      other: 'Sonstige Änderungen',
+    },
+    ja: {
+      title: 'リリースノート',
+      summary: '概要',
+      contributors: '貢献者',
+      breaking: '重大な変更',
+      fullChangelog: '完全な変更履歴',
+      features: '機能',
+      bugFixes: 'バグ修正',
+      other: 'その他の変更',
+    },
+    ko: {
+      title: '릴리스 노트',
+      summary: '요약',
+      contributors: '기여자',
+      breaking: '주요 변경사항',
+      fullChangelog: '전체 변경 이력',
+      features: '기능',
+      bugFixes: '버그 수정',
+      other: '기타 변경사항',
+    },
+    zh: {
+      title: '发布说明',
+      summary: '摘要',
+      contributors: '贡献者',
+      breaking: '破坏性变更',
+      fullChangelog: '完整变更日志',
+      features: '新功能',
+      bugFixes: '错误修复',
+      other: '其他变更',
+    },
+    pt: {
+      title: 'Notas de Versão',
+      summary: 'Resumo',
+      contributors: 'Contribuidores',
+      breaking: 'Mudanças Importantes',
+      fullChangelog: 'Registro Completo',
+      features: 'Funcionalidades',
+      bugFixes: 'Correções',
+      other: 'Outras Mudanças',
+    },
+    ru: {
+      title: 'Примечания к релизу',
+      summary: 'Обзор',
+      contributors: 'Участники',
+      breaking: 'Критические изменения',
+      fullChangelog: 'Полный журнал изменений',
+      features: 'Функции',
+      bugFixes: 'Исправления',
+      other: 'Прочие изменения',
+    },
+  },
+
+  DEFAULTS: {
+    TEMPLATE: 'default',
+    COMMIT_MODE: 'auto',
+    VERSION_FROM: 'tag',
+    MAX_COMMITS: 200,
+    LANGUAGE: 'en',
+    TEMPERATURE: 0.3,
+    MAX_TOKENS: 4000,
+  },
+
+  CONVENTIONAL_COMMIT_REGEX: /^(feat|fix|perf|refactor|docs|style|test|chore|build|ci|revert)(\(([^)]+)\))?(!)?:\s*(.+)/i,
+
+  BREAKING_CHANGE_REGEX: /BREAKING[ -]CHANGE:\s*(.+)/i,
+
+  BUILT_IN_TEMPLATES: ['default', 'minimal', 'detailed', 'enterprise', 'fun'],
+
+  VALID_COMMIT_MODES: ['commits', 'pull-requests', 'auto'],
+
+  VALID_VERSION_SOURCES: ['tag', 'package-json', 'manual'],
+
+  VALID_LANGUAGES: ['en', 'es', 'fr', 'de', 'ja', 'ko', 'zh', 'pt', 'ru'],
+
+  IMPACT_THRESHOLDS: {
+    LOW: 5,
+    MEDIUM: 20,
+    HIGH: Infinity,
+  },
+};
