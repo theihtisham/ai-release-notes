@@ -9,7 +9,7 @@
 AI-powered. Multi-format. Auto migration guides. 4 tone modes. 9 languages. Works with any stack.
 
 [![GitHub Actions](https://img.shields.io/badge/GitHub-Action-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
-[![npm version](https://img.shields.io/badge/npm-1.0.0-CB3847?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/ai-release-notes)
+[![npm version](https://img.shields.io/npm/v/@theihtisham/ai-release-notes?style=for-the-badge&logo=npm&logoColor=white&color=CB3847)](https://www.npmjs.com/package/@theihtisham/ai-release-notes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Tests](https://img.shields.io/badge/Tests-148%20passing-brightgreen?style=for-the-badge)]()
 [![OpenAI Compatible](https://img.shields.io/badge/AI-OpenAI%20Compatible-412991?style=for-the-badge&logo=openai&logoColor=white)]()
@@ -33,7 +33,7 @@ Normally that's 2 hours of copy-paste hell. With AI Release Notes, it's 30 secon
 **One command. Six formats. Zero effort.**
 
 ```
- npx ai-release-notes --from=v2.0.0 --to=v2.1.0 --tone=professional --language=en
+ npx @theihtisham/ai-release-notes --from=v2.0.0 --to=v2.1.0 --tone=professional --language=en
 
   API  v2.1.0  Generated in 4.2s
   MD   release-notes.md .............. 2.1 KB
@@ -210,7 +210,7 @@ Normally that's 2 hours of copy-paste hell. With AI Release Notes, it's 30 secon
 |  @dave @eve @sarah                                                 |
 +------------------------------------------------------------------+
 | 6/7 Full changelog:                                                |
-|  github.com/USERNAME/app/compare/v2.0.0...v2.1.0                  |
+|  github.com/theihtisham/app/compare/v2.0.0...v2.1.0               |
 |                                                                    |
 |  #ReleaseNotes #OpenSource #Changelog #BreakingChange             |
 +------------------------------------------------------------------+
@@ -466,7 +466,7 @@ jobs:
           fetch-depth: 0
 
       - name: Generate AI Release Notes
-        uses: USERNAME/ai-release-notes@v1
+        uses: theihtisham/ai-release-notes@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           api-key: ${{ secrets.OPENAI_API_KEY }}    # Optional - works without it
@@ -503,7 +503,7 @@ jobs:
           fetch-depth: 0
 
       - name: Generate & Publish Release Notes
-        uses: USERNAME/ai-release-notes@v1
+        uses: theihtisham/ai-release-notes@v1
         with:
           # Required
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -574,31 +574,31 @@ The action will analyze commits, detect breaking changes, generate release notes
 
 ```bash
 # Basic: auto-detect versions from git tags
-npx ai-release-notes --github-token=$GITHUB_TOKEN --api-key=$OPENAI_API_KEY
+npx @theihtisham/ai-release-notes --github-token=$GITHUB_TOKEN --api-key=$OPENAI_API_KEY
 
 # Specific version range
-npx ai-release-notes --from=v1.0.0 --to=v2.0.0 --api-key=sk-xxx
+npx @theihtisham/ai-release-notes --from=v1.0.0 --to=v2.0.0 --api-key=sk-xxx
 
 # Casual tone for Slack
-npx ai-release-notes --template=casual --format=slack --from=v2.0.0
+npx @theihtisham/ai-release-notes --template=casual --format=slack --from=v2.0.0
 
 # Humorous tone in Japanese
-npx ai-release-notes --tone=humorous --language=ja --from=v1.0.0
+npx @theihtisham/ai-release-notes --tone=humorous --language=ja --from=v1.0.0
 
 # Dry run - preview without creating a release
-npx ai-release-notes --from=v1.0.0 --dry-run
+npx @theihtisham/ai-release-notes --from=v1.0.0 --dry-run
 
 # Works without AI key (template-based generation)
-npx ai-release-notes --from=v1.0.0
+npx @theihtisham/ai-release-notes --from=v1.0.0
 
 # Save to file
-npx ai-release-notes --from=v1.0.0 > RELEASE_NOTES.md
+npx @theihtisham/ai-release-notes --from=v1.0.0 > RELEASE_NOTES.md
 
 # Pipe to clipboard (macOS)
-npx ai-release-notes --from=v1.0.0 | pbcopy
+npx @theihtisham/ai-release-notes --from=v1.0.0 | pbcopy
 
 # Post to custom endpoint
-npx ai-release-notes --from=v1.0.0 --format=json | curl -X POST -d @- https://api.example.com/releases
+npx @theihtisham/ai-release-notes --from=v1.0.0 --format=json | curl -X POST -d @- https://api.example.com/releases
 ```
 
 <details>
@@ -1267,7 +1267,7 @@ Static analysis of the actual diff to detect structural breaking changes.
 ### OpenAI (Default)
 
 ```yaml
-- uses: USERNAME/ai-release-notes@v1
+- uses: theihtisham/ai-release-notes@v1
   with:
     api-key: ${{ secrets.OPENAI_API_KEY }}
     model: gpt-4o-mini  # or gpt-4o, gpt-4-turbo
@@ -1276,7 +1276,7 @@ Static analysis of the actual diff to detect structural breaking changes.
 ### Azure OpenAI
 
 ```yaml
-- uses: USERNAME/ai-release-notes@v1
+- uses: theihtisham/ai-release-notes@v1
   with:
     api-key: ${{ secrets.AZURE_OPENAI_KEY }}
     api-base: https://your-resource.openai.azure.com/openai/deployments/your-deployment
@@ -1286,7 +1286,7 @@ Static analysis of the actual diff to detect structural breaking changes.
 ### Local LLM (Ollama, LM Studio)
 
 ```yaml
-- uses: USERNAME/ai-release-notes@v1
+- uses: theihtisham/ai-release-notes@v1
   with:
     api-key: not-needed
     api-base: http://localhost:11434/v1
@@ -1296,7 +1296,7 @@ Static analysis of the actual diff to detect structural breaking changes.
 ### Any OpenAI-Compatible API
 
 ```yaml
-- uses: USERNAME/ai-release-notes@v1
+- uses: theihtisham/ai-release-notes@v1
   with:
     api-key: ${{ secrets.CUSTOM_API_KEY }}
     api-base: https://your-api.example.com/v1
@@ -1306,7 +1306,7 @@ Static analysis of the actual diff to detect structural breaking changes.
 ### Without AI Key (Template Engine)
 
 ```yaml
-- uses: USERNAME/ai-release-notes@v1
+- uses: theihtisham/ai-release-notes@v1
   with:
     github-token: ${{ secrets.GITHUB_TOKEN }}
     # No api-key needed -- uses intelligent template-based generation
@@ -1322,7 +1322,7 @@ Works offline. No API calls. Still generates great release notes using conventio
 ### Programmatic Usage
 
 ```javascript
-import { generateReleaseNotes } from 'ai-release-notes';
+import { generateReleaseNotes } from '@theihtisham/ai-release-notes';
 
 // Basic usage
 const result = await generateReleaseNotes({
@@ -1369,7 +1369,7 @@ import {
   formatTwitter,
   formatHTML,
   formatCompact,
-} from 'ai-release-notes';
+} from '@theihtisham/ai-release-notes';
 
 const result = await generateReleaseNotes({ /* ... */ });
 
