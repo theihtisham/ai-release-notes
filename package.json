@@ -1,5 +1,5 @@
 {
-  "name": "ai-release-notes",
+  "name": "@theihtisham/ai-release-notes",
   "version": "1.0.0",
   "description": "Auto-generate beautiful release notes from commits, PRs, and diffs using AI",
   "main": "index.js",
@@ -30,5 +30,12 @@
     "changelog",
     "automation"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theihtisham/ai-release-notes.git"
+  }
 }
