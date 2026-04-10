@@ -435,6 +435,16 @@ How does AI Release Notes stack up against every popular alternative?
 
 ---
 
+## Install
+
+```bash
+# npm
+npm install @theihtisham/ai-release-notes
+
+# Or run instantly (no install needed)
+npx @theihtisham/ai-release-notes --from=v1.0.0
+```
+
 ## Quick Start (30 Seconds)
 
 Two paths. Both take under 2 minutes.
